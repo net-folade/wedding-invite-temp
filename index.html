@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+  <meta name="description" content="You're invited! Join us as we celebrate our wedding." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=8" />
+</head>
+<body>
+
+  <!-- Envelope intro screen -->
+  <div class="envelope-screen" id="envelopeScreen">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the invitation">
+      <div class="envelope-back"></div>
+      <div class="envelope-card">
+        <p class="card-mini-names">A &amp; B</p>
+        <p class="card-mini-text">You're invited</p>
+      </div>
+      <div class="envelope-front"></div>
+      <div class="envelope-flap"></div>
+      <div class="envelope-seal">A♥B</div>
+    </div>
+    <p class="envelope-hint">Tap the envelope to open</p>
+  </div>
+
+  <!-- Confetti / petals canvas -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <!-- Main invitation -->
+  <main class="invitation" id="invitation" hidden>
+
+    <header class="hero">
+      <p class="hero-eyebrow">Together with their families</p>
+      <h1 class="hero-names">Partner One <span class="amp">&amp;</span> Partner Two</h1>
+      <p class="hero-invite">joyfully invite you to their wedding reception</p>
+      <p class="hero-date">Saturday, January 1, 2030 · <span class="hero-time">2:00 PM</span></p>
+      <p class="hero-venue">Venue Name, City</p>
+    </header>
+
+    <!-- Countdown -->
+    <section class="countdown" aria-label="Countdown to the wedding">
+      <h2 class="section-title">Counting down</h2>
+      <div class="countdown-grid" id="countdownGrid">
+        <div class="count-box"><span class="count-num" id="cdDays">--</span><span class="count-label">Days</span></div>
+        <div class="count-box"><span class="count-num" id="cdHours">--</span><span class="count-label">Hours</span></div>
+        <div class="count-box"><span class="count-num" id="cdMins">--</span><span class="count-label">Minutes</span></div>
+        <div class="count-box"><span class="count-num" id="cdSecs">--</span><span class="count-label">Seconds</span></div>
+      </div>
+      <p class="countdown-today" id="countdownToday" hidden>It's today! 🎉</p>
+    </section>
+
+    <!-- Details -->
+    <section class="details">
+      <h2 class="section-title">The details</h2>
+      <div class="details-grid">
+        <div class="detail-card">
+          <h3>Reception</h3>
+          <p>2:00 PM</p>
+          <p>Venue Name</p>
+          <p>City, Country</p>
+          <!-- Replace href with your venue's map link -->
+          <a class="map-link" href="#" target="_blank" rel="noopener">View on map ↗</a>
+        </div>
+        <div class="detail-card">
+          <h3>Dress code</h3>
+          <p>Formal attire</p>
+          <p>Come dress to impress ✨</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+      <h2 class="section-title">Our story in pictures</h2>
+      <div class="gallery" tabindex="0" aria-label="Photo gallery, scroll sideways">
+        <img src="photos/photo1.jpg" alt="Couple photo 1" loading="lazy" />
+        <img src="photos/photo2.jpeg" alt="Couple photo 2" loading="lazy" />
+        <img src="photos/photo3.jpeg" alt="Couple photo 3" loading="lazy" />
+        <img src="photos/photo4-web.jpg" alt="Couple photo 4" loading="lazy" />
+        <img src="photos/photo6.jpg" alt="Couple photo 5" loading="lazy" />
+      </div>
+      <p class="gallery-hint">Swipe to see more →</p>
+    </section>
+
+    <!-- RSVP -->
+    <section class="rsvp">
+      <h2 class="section-title">RSVP</h2>
+      <p class="rsvp-deadline">Kindly respond by December 1, 2029</p>
+      <!-- Optional: add your own contact numbers here
+      <p class="rsvp-phones">
+        Or RSVP by phone:<br />
+        <a href="tel:+10000000000">000 000 0000</a>
+      </p>
+      -->
+      <!-- Submission handled by script.js (posts to a Google Apps Script web app) -->
+      <form id="rsvpForm" action="#" method="POST">
+        <label>
+          Your name
+          <input type="text" name="name" required autocomplete="name" placeholder="Full name" />
+        </label>
+        <fieldset>
+          <legend>Will you attend?</legend>
+          <label class="radio"><input type="radio" name="attending" value="Joyfully accepts" required /> Yes yes yes, I'll be there 🎉</label>
+          <label class="radio"><input type="radio" name="attending" value="Regretfully declines" /> Sorry, can't make it 😔</label>
+        </fieldset>
+        <fieldset>
+          <legend>Are you bringing a plus one?</legend>
+          <label class="radio"><input type="radio" name="plus_one" value="Yes" /> Yes</label>
+          <label class="radio"><input type="radio" name="plus_one" value="No" /> No</label>
+        </fieldset>
+        <label>
+          Dietary notes or a message for the couple
+          <textarea name="message" rows="3" placeholder="Optional"></textarea>
+        </label>
+        <button type="submit" id="rsvpSubmit">Send RSVP</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-names">Partner One &amp; Partner Two</p>
+      <p>We can't wait to celebrate with you 💛</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js?v=8"></script>
+</body>
+</html>

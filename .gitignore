@@ -1,0 +1,5 @@
+.DS_Store
+
+# your own photos stay local — see photos/README.md
+photos/*
+!photos/README.md
